@@ -4,6 +4,6 @@ import MenuPage from "./components/MenuPage.jsx";
 
 (function(magic){
 
-    ReactDOM.render(<MenuPage />, document.getElementById(magic.rootId))
+    ReactDOM.render(<MenuPage feeds={magic.feeds} />, document.getElementById(magic.rootId))
 
 })(RSSMagic)

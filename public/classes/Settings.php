@@ -4,6 +4,8 @@
 namespace Palasthotel\WordPress\RSSMagic;
 
 
+use Palasthotel\WordPress\RssMagic\Model\Feed;
+
 class Settings extends _Component {
 
 	const DOM_ROOT_ID = "rss-magic-root";
@@ -23,7 +25,11 @@ class Settings extends _Component {
 			70
 		);
 		if($this->isSettingsPage()){
-			$this->plugin->assets->enqueueMenuPage(self::DOM_ROOT_ID);
+			$this->tryHandleFormSubmission();
+			$this->plugin->assets->enqueueMenuPage(
+				self::DOM_ROOT_ID,
+				$this->plugin->repo->getFeeds()
+			);
 		}
 	}
 
@@ -31,9 +37,31 @@ class Settings extends _Component {
 		return isset( $_GET["page"] ) && Plugin::MENU_SLUG == $_GET["page"];
 	}
 
+	private function tryHandleFormSubmission(){
+		if(!isset($_POST["rss-magic-slug"]) || !is_array($_POST["rss-magic-slug"])) return;
+		if(!isset($_POST["rss-magic-url"]) || !is_array($_POST["rss-magic-url"])) return;
+		if(count($_POST["rss-magic-slug"]) != count($_POST["rss-magic-url"])) return;
+
+		$slugs = array_map('sanitize_text_field', $_POST['rss-magic-slug']);
+		$urls = array_map('sanitize_text_field', $_POST['rss-magic-url']);
+
+		$feeds = [];
+		foreach ($slugs as $index => $slug){
+			if(empty($slug) || empty($urls[$index])) continue;
+			$feeds[] = new Feed($slug, $urls[$index]);
+		}
+		$success = $this->plugin->repo->setFeeds($feeds);
+		return $success;
+
+	}
+
 	public function render() {
+		echo "<form method='POST'>";
 		$rootId = self::DOM_ROOT_ID;
-		echo "<div class='wrap' id='$rootId' />";
+		echo "<div class='wrap' id='$rootId' ></div>";
+		submit_button(__("Save changes", Plugin::DOMAIN));
+		echo "</form>";
+
 	}
 
 }

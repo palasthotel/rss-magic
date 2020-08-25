@@ -22,6 +22,7 @@ namespace Palasthotel\WordPress\RSSMagic;
  * @property Settings settings
  * @property Assets assets
  * @property Grid grid
+ * @property Repository repo
  */
 class Plugin {
 
@@ -31,7 +32,9 @@ class Plugin {
 
 	const HANDLE_MENU_SCRIPT = "rss-magic-menu";
 
-	public function __construct(){
+	const OPTION_FEEDS = "_rss-magic-feeds";
+
+	private function __construct(){
 
 		$this->path = plugin_dir_path(__FILE__);
 		$this->url = plugin_dir_url(__FILE__);
@@ -46,9 +49,22 @@ class Plugin {
 
 		$this->settings = new Settings($this);
 		$this->assets = new Assets($this);
+		$this->repo = new Repository();
 		$this->grid = new Grid($this);
 
 	}
+
+	private static $instance;
+
+	/**
+	 * @return Plugin
+	 */
+	public static function instance(){
+		if(self::$instance == null){
+			self::$instance = new Plugin();
+		}
+		return self::$instance;
+	}
 }
 
-new Plugin();
+Plugin::instance();

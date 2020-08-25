@@ -4,9 +4,15 @@
 namespace Palasthotel\WordPress\RSSMagic;
 
 
+use Palasthotel\WordPress\RssMagic\Model\Feed;
+
 class Assets extends _Component {
 
-	public function enqueueMenuPage($rootId){
+	/**
+	 * @param string $rootId
+	 * @param Feed[] $feeds
+	 */
+	public function enqueueMenuPage($rootId, $feeds){
 		wp_enqueue_script(
 			Plugin::HANDLE_MENU_SCRIPT,
 			$this->plugin->url."/dist/scripts/menuPage.js",
@@ -18,7 +24,8 @@ class Assets extends _Component {
 			Plugin::HANDLE_MENU_SCRIPT,
 			"RSSMagic",
 			[
-				"rootId" => $rootId
+				"rootId" => $rootId,
+				"feeds" => $feeds,
 			]
 		);
 	}

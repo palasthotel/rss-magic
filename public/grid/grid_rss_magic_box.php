@@ -33,16 +33,12 @@ class grid_rss_magic_box extends grid_list_box {
 				'key'   => 'slug',
 				'label' => _x( 'RSS Feed', 'grid_box', Plugin::DOMAIN ),
 				'type'  => 'select',
-				'selections' => array(
-//					array(
-//						'key'  => 'feed1',
-//						'text' => _x( 'Feed 1', 'grid box' ),
-//					),
-//					array(
-//						'key'  => 'feed2',
-//						'text' => t( 'Feed 2' ),
-//					),
-				)
+				'selections' => array_map(function($feed){
+					return array(
+						"key" => $feed->slug,
+						"text" => $feed->slug,
+					);
+				}, Plugin::instance()->repo->getFeeds())
 			),
 			array(
 				'key'   => 'number_of_items',
