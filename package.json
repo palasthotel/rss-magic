@@ -1,0 +1,30 @@
+{
+  "name": "rss-magic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "./node_modules/webpack/bin/webpack.js --watch --progress --config webpack.dev.js",
+    "build": "./node_modules/webpack/bin/webpack.js --progress --config webpack.prod.js",
+    "watchGutenberg": "wp-scripts start --config webpack.gutenberg.js",
+    "buildGutenberg": "wp-scripts build --config webpack.gutenberg.js"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.4",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "@wordpress/scripts": "^12.1.1",
+    "babel-loader": "^8.1.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-merge": "^5.1.2"
+  },
+  "dependencies": {
+    "axios": "^0.20.0"
+  },
+  "author": "",
+  "license": "ISC"
+}

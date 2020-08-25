@@ -16,9 +16,12 @@
 
 namespace Palasthotel\WordPress\RSSMagic;
 
-
 /**
+ * @property string path
+ * @property string url
  * @property Settings settings
+ * @property Assets assets
+ * @property Grid grid
  */
 class Plugin {
 
@@ -26,7 +29,13 @@ class Plugin {
 
 	const MENU_SLUG = "rss-magic";
 
+	const HANDLE_MENU_SCRIPT = "rss-magic-menu";
+
 	public function __construct(){
+
+		$this->path = plugin_dir_path(__FILE__);
+		$this->url = plugin_dir_url(__FILE__);
+
 		require_once dirname(__FILE__)."/vendor/autoload.php";
 
 		load_plugin_textdomain(
@@ -36,6 +45,8 @@ class Plugin {
 		);
 
 		$this->settings = new Settings($this);
+		$this->assets = new Assets($this);
+		$this->grid = new Grid($this);
 
 	}
 }
