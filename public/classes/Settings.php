@@ -33,7 +33,7 @@ class Settings extends _Component {
 
 	public function render() {
 		$rootId = self::DOM_ROOT_ID;
-		echo "<div id='$rootId' />";
+		echo "<div class='wrap' id='$rootId' />";
 	}
 
 }

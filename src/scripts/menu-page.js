@@ -1,8 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import MenuPage from "./components/MenuPage.jsx";
 
 (function(magic){
 
-    ReactDOM.render(<p>test</p>, document.getElementById(magic.rootId))
+    ReactDOM.render(<MenuPage />, document.getElementById(magic.rootId))
 
 })(RSSMagic)
