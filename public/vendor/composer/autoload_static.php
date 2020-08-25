@@ -22,12 +22,17 @@ class ComposerStaticInit1708edfc460e966b395c79a922660562
 
     public static $classMap = array (
         'Palasthotel\\WordPress\\RSSMagic\\Assets' => __DIR__ . '/../..' . '/classes/Assets.php',
+        'Palasthotel\\WordPress\\RSSMagic\\Dependency' => __DIR__ . '/../..' . '/classes/Dependency.php',
         'Palasthotel\\WordPress\\RSSMagic\\Grid' => __DIR__ . '/../..' . '/classes/Grid.php',
         'Palasthotel\\WordPress\\RSSMagic\\Gutenberg' => __DIR__ . '/../..' . '/classes/Gutenberg.php',
+        'Palasthotel\\WordPress\\RSSMagic\\Render' => __DIR__ . '/../..' . '/classes/Render.php',
         'Palasthotel\\WordPress\\RSSMagic\\Repository' => __DIR__ . '/../..' . '/classes/Repository.php',
         'Palasthotel\\WordPress\\RSSMagic\\Settings' => __DIR__ . '/../..' . '/classes/Settings.php',
+        'Palasthotel\\WordPress\\RSSMagic\\Templates' => __DIR__ . '/../..' . '/classes/Templates.php',
         'Palasthotel\\WordPress\\RSSMagic\\_Component' => __DIR__ . '/../..' . '/classes/_Component.php',
         'Palasthotel\\WordPress\\RssMagic\\Model\\Feed' => __DIR__ . '/../..' . '/classes/Model/Feed.php',
+        'Palasthotel\\WordPress\\RssMagic\\Model\\FeedItem' => __DIR__ . '/../..' . '/classes/Model/FeedItem.php',
+        'Palasthotel\\WordPress\\RssMagic\\Model\\ItemSource' => __DIR__ . '/../..' . '/classes/Model/ItemSource.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

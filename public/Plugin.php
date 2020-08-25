@@ -23,6 +23,9 @@ namespace Palasthotel\WordPress\RSSMagic;
  * @property Assets assets
  * @property Grid grid
  * @property Repository repo
+ * @property Dependency di
+ * @property Templates templates
+ * @property Render render
  */
 class Plugin {
 
@@ -33,6 +36,21 @@ class Plugin {
 	const HANDLE_MENU_SCRIPT = "rss-magic-menu";
 
 	const OPTION_FEEDS = "_rss-magic-feeds";
+
+	const THEME_FOLDER = "plugin-parts";
+
+
+	const TEMPLATE_FEED_WITH_SLUG = "magic-rss-feed--%s.php";
+	const TEMPLATE_FEED ="magic-rss-feed-item.php";
+
+	const TEMPLATE_FEED_ITEM_WITH_SLUG = "magic-rss-feed-item--feed__%s.php";
+	const TEMPLATE_FEED_ITEM_WITH_TYPE = "magic-rss-feed-item--%s.php";
+	const TEMPLATE_FEED_ITEM ="magic-rss-feed-item.php";
+
+	const FILTER_TEMPLATE_PATHS = "rss_magic_template_paths";
+
+	const ACTION_RENDER_FEED = "rss_magic_render_feed";
+	const ACTION_RENDER_FEED_ITEM = "rss_magic_render_feed_item";
 
 	private function __construct(){
 
@@ -47,9 +65,12 @@ class Plugin {
 			plugin_basename( dirname( __FILE__ ) ) . '/languages'
 		);
 
+		$this->di = new Dependency($this);
+		$this->templates = new Templates($this);
+		$this->render = new Render($this);
 		$this->settings = new Settings($this);
 		$this->assets = new Assets($this);
-		$this->repo = new Repository();
+		$this->repo = new Repository($this);
 		$this->grid = new Grid($this);
 
 	}

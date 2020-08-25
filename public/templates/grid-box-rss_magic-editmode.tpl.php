@@ -10,9 +10,9 @@
 	<?php
 	echo ($this->grid) ? "</b>" : "";
 	if($this->grid){
-		foreach($content as $c){
-			if(!empty($c->{$field})){
-				echo "<br />".$field.": ".$c->{$field};
+		foreach($content as $field => $c){
+			if(!empty($c)){
+				echo "<br />".$field.": ".$c;
 			}
 		}
 	}

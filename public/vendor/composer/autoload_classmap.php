@@ -7,10 +7,15 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Palasthotel\\WordPress\\RSSMagic\\Assets' => $baseDir . '/classes/Assets.php',
+    'Palasthotel\\WordPress\\RSSMagic\\Dependency' => $baseDir . '/classes/Dependency.php',
     'Palasthotel\\WordPress\\RSSMagic\\Grid' => $baseDir . '/classes/Grid.php',
     'Palasthotel\\WordPress\\RSSMagic\\Gutenberg' => $baseDir . '/classes/Gutenberg.php',
+    'Palasthotel\\WordPress\\RSSMagic\\Render' => $baseDir . '/classes/Render.php',
     'Palasthotel\\WordPress\\RSSMagic\\Repository' => $baseDir . '/classes/Repository.php',
     'Palasthotel\\WordPress\\RSSMagic\\Settings' => $baseDir . '/classes/Settings.php',
+    'Palasthotel\\WordPress\\RSSMagic\\Templates' => $baseDir . '/classes/Templates.php',
     'Palasthotel\\WordPress\\RSSMagic\\_Component' => $baseDir . '/classes/_Component.php',
     'Palasthotel\\WordPress\\RssMagic\\Model\\Feed' => $baseDir . '/classes/Model/Feed.php',
+    'Palasthotel\\WordPress\\RssMagic\\Model\\FeedItem' => $baseDir . '/classes/Model/FeedItem.php',
+    'Palasthotel\\WordPress\\RssMagic\\Model\\ItemSource' => $baseDir . '/classes/Model/ItemSource.php',
 );
