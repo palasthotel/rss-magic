@@ -17,5 +17,5 @@ return array(
     'Palasthotel\\WordPress\\RSSMagic\\_Component' => $baseDir . '/classes/_Component.php',
     'Palasthotel\\WordPress\\RssMagic\\Model\\Feed' => $baseDir . '/classes/Model/Feed.php',
     'Palasthotel\\WordPress\\RssMagic\\Model\\FeedItem' => $baseDir . '/classes/Model/FeedItem.php',
-    'Palasthotel\\WordPress\\RssMagic\\Model\\ItemSource' => $baseDir . '/classes/Model/ItemSource.php',
+    'Palasthotel\\WordPress\\RssMagic\\Model\\Source' => $baseDir . '/classes/Model/Source.php',
 );

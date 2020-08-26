@@ -10,5 +10,5 @@ use Palasthotel\WordPress\RssMagic\Model\Feed;
  */
 
 foreach ($feedList as $item){
-	do_action( Plugin::ACTION_RENDER_FEED, $item);
+	do_action( Plugin::ACTION_RENDER_FEED_ITEM, $item);
 }

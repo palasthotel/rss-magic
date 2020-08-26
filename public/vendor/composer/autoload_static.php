@@ -32,7 +32,7 @@ class ComposerStaticInit1708edfc460e966b395c79a922660562
         'Palasthotel\\WordPress\\RSSMagic\\_Component' => __DIR__ . '/../..' . '/classes/_Component.php',
         'Palasthotel\\WordPress\\RssMagic\\Model\\Feed' => __DIR__ . '/../..' . '/classes/Model/Feed.php',
         'Palasthotel\\WordPress\\RssMagic\\Model\\FeedItem' => __DIR__ . '/../..' . '/classes/Model/FeedItem.php',
-        'Palasthotel\\WordPress\\RssMagic\\Model\\ItemSource' => __DIR__ . '/../..' . '/classes/Model/ItemSource.php',
+        'Palasthotel\\WordPress\\RssMagic\\Model\\Source' => __DIR__ . '/../..' . '/classes/Model/Source.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

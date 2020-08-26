@@ -33,24 +33,55 @@ class FeedItem {
 		return $this->raw->get_description();
 	}
 
-	public function get_date(){
-		return $this->raw->get_date();
+	/**
+	 * @param string $format
+	 *
+	 * @return \DateTime|string
+	 */
+	public function get_date( $format = null ){
+		$date = $this->raw->get_date("Y-m-d h:i:s");
+		$time = strtotime($date);
+		$dt = new \DateTime($date);
+		$dt->setTimezone(new \DateTimeZone(get_option('timezone_string')));
+		return ($format) ? $dt->format($format): $dt;
+	}
+
+	/**
+	 * @return \SimplePie_Author|null
+	 */
+	public function get_author(){
+		return $this->raw->get_author(0);
+	}
+
+	/**
+	 * @return array|\SimplePie_Author[]|null
+	 */
+	public function get_authors(){
+		return $this->raw->get_authors();
+	}
+
+	public function get_media(){
+		return $this->raw->get_enclosure(0);
+	}
+
+	public function get_thumbnail(){
+		return $this->raw->get_thumbnail();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getSourceType(){
+	public function get_source(){
 		if(strpos($this->get_permalink(),"https://www.facebook.com/") === 0){
-			return ItemSource::FACEBOOK;
+			return Source::FACEBOOK;
 		} else if(strpos($this->get_permalink(), "https://twitter.com/") === 0){
-			return ItemSource::TWITTER;
+			return Source::TWITTER;
 		} else if(strpos($this->get_permalink(), "https://www.instagram.com/") === 0){
-			return ItemSource::INSTAGRAM;
+			return Source::INSTAGRAM;
 		} else if(strpos($this->get_permalink(), "https://www.youtube.com/") === 0){
-			return ItemSource::YOUTUBE;
+			return Source::YOUTUBE;
 		}
 
-		return ItemSource::UNKNOWN;
+		return Source::UNKNOWN;
 	}
 }

@@ -25,7 +25,12 @@ class grid_rss_magic_box extends grid_list_box {
 		$this->content->feed = Plugin::instance()->repo->getFeed($this->content->slug);
 		$this->content->feedList = ($this->content->feed) ? Plugin::instance()->repo->fetchFeed($this->content->feed): [];
 
-		return $this->content;
+		ob_start();
+		do_action(Plugin::ACTION_RENDER_FEED, $this->content->feed, $this->content->feedList);
+		$output = ob_get_contents();
+		ob_end_clean();
+
+		return $output;
 	}
 
 	public function contentStructure() {

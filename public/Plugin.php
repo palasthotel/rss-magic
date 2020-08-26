@@ -40,10 +40,11 @@ class Plugin {
 	const THEME_FOLDER = "plugin-parts";
 
 
-	const TEMPLATE_FEED_WITH_SLUG = "magic-rss-feed--%s.php";
-	const TEMPLATE_FEED ="magic-rss-feed-item.php";
+	const TEMPLATE_FEED_WITH_SLUG = "magic-rss-feed__%s.php";
+	const TEMPLATE_FEED ="magic-rss-feed.php";
 
-	const TEMPLATE_FEED_ITEM_WITH_SLUG = "magic-rss-feed-item--feed__%s.php";
+	const TEMPLATE_FEED_ITEM_WITH_SLUG_AND_TYPE = "magic-rss-feed-item__%s--%s.php";
+	const TEMPLATE_FEED_ITEM_WITH_SLUG = "magic-rss-feed-item__%s.php";
 	const TEMPLATE_FEED_ITEM_WITH_TYPE = "magic-rss-feed-item--%s.php";
 	const TEMPLATE_FEED_ITEM ="magic-rss-feed-item.php";
 

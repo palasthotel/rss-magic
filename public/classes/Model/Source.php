@@ -4,7 +4,7 @@
 namespace Palasthotel\WordPress\RssMagic\Model;
 
 
-class ItemSource {
+class Source {
 	const FACEBOOK = "facebook";
 	const INSTAGRAM = "instagram";
 	const TWITTER = "twitter";
