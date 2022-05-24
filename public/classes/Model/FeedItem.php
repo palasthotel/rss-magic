@@ -39,7 +39,7 @@ class FeedItem {
 	 * @return \DateTime|string
 	 */
 	public function get_date( $format = null ){
-		$date = $this->raw->get_date("Y-m-d h:i:s");
+		$date = $this->raw->get_date("Y-m-d H:i:s");
 		$time = strtotime($date);
 		$dt = new \DateTime($date);
 		$dt->setTimezone(new \DateTimeZone(get_option('timezone_string')));
